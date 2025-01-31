@@ -13,11 +13,9 @@ const IndexScreen = ({navigation}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  // Animated Value untuk Rotasi
   const spinValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Memulai animasi rotasi saat loading
     Animated.loop(
       Animated.timing(spinValue, {
         toValue: 1,
@@ -52,7 +50,6 @@ const IndexScreen = ({navigation}) => {
     <ImageBackground source={require('../assets/bg.png')} style={styles.container}>
       {loading ? (
         <View style={styles.loadingContainer}>
-          {/* Gambar Loading yang Berputar */}
           <Animated.Image source={require('../assets/loading.png')} style={[styles.loadingImage, {transform: [{rotate: spin}]}]} />
           <ActivityIndicator size="large" color="#ffffff" style={styles.loadingIndicator} />
         </View>
